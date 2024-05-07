@@ -1,0 +1,3 @@
+FROM openjdk:17-jdk
+RUN microdnf install git
+WORKDIR /home/dev/source

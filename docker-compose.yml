@@ -1,0 +1,73 @@
+version: '3.0'
+volumes:
+  node_dev:
+  angular_dev:
+  flutter_dev:
+  python_dev:
+  java_dev:
+  go_dev:
+services:
+  node-16:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.node-16
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - node_dev:/home/dev/source
+  angular-14:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.angular-14
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - angular_dev:/home/dev/source
+  flutter-3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.flutter-3
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - flutter_dev:/home/dev/source
+  python-3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python-3
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - python_dev:/home/dev/source
+  node-20:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.node-20
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - node_dev:/home/dev/source
+  jdk-17:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.jdk-17
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - java_dev:/home/dev/source
+  go-19:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.go-19
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - go_dev:/home/dev/source
+  node-20-slim:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.node-20-slim
+    restart: on-failure
+    command: [ "sleep", "infinity" ]
+    volumes:
+      - node_dev:/home/dev/source
