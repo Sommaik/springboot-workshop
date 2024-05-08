@@ -88,3 +88,5 @@ services:
     restart: always
     volumes:
       - dbeaver_data:/opt/cloudbeaver/workspace
+    ports:
+      - 8978:8978
