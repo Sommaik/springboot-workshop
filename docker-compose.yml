@@ -6,6 +6,8 @@ volumes:
   python_dev:
   java_dev:
   go_dev:
+  my_db:
+  dbeaver_data:
 services:
   node-16:
     build:
@@ -71,3 +73,18 @@ services:
     command: [ "sleep", "infinity" ]
     volumes:
       - node_dev:/home/dev/source
+  mydb:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: my_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - my_db:/var/lib/mysql
+  dbeaver:
+    image: dbeaver/cloudbeaver
+    restart: always
+    volumes:
+      - dbeaver_data:/opt/cloudbeaver/workspace
