@@ -90,3 +90,7 @@ services:
       - dbeaver_data:/opt/cloudbeaver/workspace
     ports:
       - 8978:8978
+  zipkin:
+    image: openzipkin/zipkin
+    ports: 
+      - 9411:9411
