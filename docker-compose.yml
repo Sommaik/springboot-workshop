@@ -94,3 +94,19 @@ services:
     image: openzipkin/zipkin
     ports: 
       - 9411:9411
+  elk:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.elk
+    environment:
+      - discovery.type=single-node
+      - node.name=es01
+      - bootstrap.memory_lock=true
+      - ES_HEAP_SIZE=1G
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - bootstrap.system_call_filter= true
+    ports:
+      - 5601:5601
+      - 9200:9200
+      - 5044:5044
+
